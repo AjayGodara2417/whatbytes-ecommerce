@@ -6,7 +6,7 @@ This is an e-commerce frontend project built with **Next.js (App Router)** and *
 
 ## 🚀 Live Demo
 
-🔗 [View Live Project on Vercel]((https://whatbytes-ecommerce-beryl.vercel.app/))
+🔗 [View Live Project on Vercel](https://whatbytes-ecommerce-beryl.vercel.app/)
 
 
 ## 🔧 Tech Stack
