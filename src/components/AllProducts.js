@@ -1,17 +1,20 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 
-export default function FeaturedProducts({ filters }) {
+export default function AllProducts({ filters }) {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
-      .then(data => setProducts(data));
+      .then(data => {
+        setProducts(data);
+        setAllProducts(data);
+      });
   }, []);
+
   useEffect(() => {
     const filtered = allProducts.filter(p => {
       const matchCategory = filters.categories.length === 0 || filters.categories.includes(p.category);
@@ -23,13 +26,13 @@ export default function FeaturedProducts({ filters }) {
     setProducts(filtered);
   }, [filters, allProducts]);
 
-  if (!products.length) return <p>No products found.</p>;
+  if (!products.length) return <p>Please wait. Products coming!!!.</p>;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+      {products.map(product => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
   );
 }

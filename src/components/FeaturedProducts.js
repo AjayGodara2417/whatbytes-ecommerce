@@ -7,7 +7,7 @@ export default function FeaturedProducts({ filters }) {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://fakestoreapi.com/products/?limit=6')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -26,7 +26,7 @@ export default function FeaturedProducts({ filters }) {
     setProducts(filtered);
   }, [filters, allProducts]);
 
-  if (!products.length) return <p>No products found.</p>;
+  if (!products.length) return <p>Please wait. Products coming!!!.</p>;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

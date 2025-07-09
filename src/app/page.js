@@ -24,7 +24,9 @@ export default function Home() {
         </aside>
 
         <section className="flex-1">
+          <h1 className='mb-4 font-bold text-2xl'>Featured Products</h1>
           <FeaturedProducts filters={filters} />
+          
           
         </section>
       </main>
