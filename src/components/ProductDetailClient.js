@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import Image from 'next/image';
 
 export default function ProductDetailClient({ product }) {
   const [quantity, setQuantity] = useState(1);
@@ -18,10 +19,12 @@ export default function ProductDetailClient({ product }) {
     <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* Image Section */}
       <div className="bg-white border rounded-lg p-4 flex justify-center items-center">
-        <img
+        <Image
           src={product.image}
           alt={product.title}
           className="object-contain h-80"
+          width={100}
+          height={100}
         />
       </div>
 

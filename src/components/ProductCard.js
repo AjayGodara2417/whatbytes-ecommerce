@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
+import Image from "next/image";
 
 export default function ProductCard({ product }) {
   const router = useRouter();
@@ -13,10 +14,12 @@ export default function ProductCard({ product }) {
         className="cursor-pointer mb-4"
         onClick={() => router.push(`/product/${product.id}`)}
       >
-        <img
+        <Image
           src={product.image}
           alt={product.title}
           className="w-full h-40 object-contain"
+          width={100}
+          height={100}
         />
       </div>
 
