@@ -1,17 +1,38 @@
-import Link from 'next/link';
+'use client';
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
 export default function ProductCard({ product }) {
+  const router = useRouter();
+  const { addToCart } = useCart();
+
   return (
-    <Link href={`/product/${product.id}`}>
-      <div className="bg-white rounded-lg border p-4 hover:shadow transition cursor-pointer">
-        <img src={product.image} alt={product.title} className="w-full h-40 object-contain mb-3" />
-        <h3 className="font-semibold text-sm">{product.title}</h3>
-        <p className="text-xs text-gray-500 mb-2 line-clamp-2">{product.description}</p>
-        <div className="flex justify-between items-center mt-auto">
-          <span className="text-lg font-bold">${product.price}</span>
-          <button className="bg-black text-white text-xs px-3 py-1 rounded">Add to Cart</button>
-        </div>
+    <div className="bg-white shadow rounded-lg p-4 flex flex-col justify-between">
+      {/* Product Image */}
+      <div
+        className="cursor-pointer mb-4"
+        onClick={() => router.push(`/product/${product.id}`)}
+      >
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-40 object-contain"
+        />
       </div>
-    </Link>
+
+      {/* Title and Price */}
+      <h3 className="text-md font-semibold mb-1 line-clamp-1">
+        {product.title}
+      </h3>
+      <p className="text-sm font-bold mb-3">${product.price}</p>
+
+      {/* Add to Cart Button */}
+      <button
+        onClick={() => addToCart(product)}
+        className="bg-blue-600 hover:bg-blue-700 text-white py-2 text-sm rounded-md transition"
+      >
+        Add to Cart
+      </button>
+    </div>
   );
 }

@@ -1,26 +1,33 @@
-'use client';
-import { useEffect, useState } from 'react';
-import ProductCard from './ProductCard';
+"use client";
+import { useEffect, useState } from "react";
+import ProductCard from "./ProductCard";
 
 export default function FeaturedProducts({ filters }) {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/?limit=6')
-      .then(res => res.json())
-      .then(data => {
+    fetch("https://fakestoreapi.com/products/?limit=6")
+      .then((res) => res.json())
+      .then((data) => {
         setProducts(data);
         setAllProducts(data);
       });
   }, []);
 
   useEffect(() => {
-    const filtered = allProducts.filter(p => {
-      const matchCategory = filters.categories.length === 0 || filters.categories.includes(p.category);
-      const matchBrand = !filters.brand || (p.brand || 'Unknown') === filters.brand;
-      const matchPrice = p.price >= filters.price.min && p.price <= filters.price.max;
-      return matchCategory && matchBrand && matchPrice;
+    const filtered = allProducts.filter((p) => {
+      const matchCategory =
+        filters.categories.length === 0 ||
+        filters.categories.includes(p.category);
+      const matchBrand =
+        !filters.brand || (p.brand || "Unknown") === filters.brand;
+      const matchPrice =
+        p.price >= filters.price.min && p.price <= filters.price.max;
+      const matchSearch = p.title
+        .toLowerCase()
+        .includes(filters.search?.toLowerCase() || "");
+      return matchCategory && matchBrand && matchPrice && matchSearch;
     });
 
     setProducts(filtered);
@@ -30,7 +37,7 @@ export default function FeaturedProducts({ filters }) {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {products.map(product => (
+      {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </div>

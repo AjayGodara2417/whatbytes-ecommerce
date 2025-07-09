@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,15 +10,18 @@ export default function Home() {
   const [filters, setFilters] = useState({
     categories: [],
     brand: '',
-    price: {
-      min: 0,
-      max: 500,
-    },
+    price: { min: 0, max: 500 },
+    search: '',
   });
+
+  const handleSearch = (searchTerm) => {
+    setFilters(prev => ({ ...prev, search: searchTerm }));
+  };
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
-      <Navbar />
+      <Navbar onSearch={handleSearch} />
+
       <main className="flex flex-1 px-6 mt-6">
         <aside className="w-64 hidden lg:block pr-6">
           <Sidebar filters={filters} setFilters={setFilters} allProducts={[]} />
@@ -26,10 +30,9 @@ export default function Home() {
         <section className="flex-1">
           <h1 className='mb-4 font-bold text-2xl'>Featured Products</h1>
           <FeaturedProducts filters={filters} />
-          
-          
         </section>
       </main>
+
       <Footer />
     </div>
   );
