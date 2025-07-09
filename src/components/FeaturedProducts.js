@@ -7,7 +7,7 @@ export default function FeaturedProducts({ filters }) {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/?limit=6')
+    fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
