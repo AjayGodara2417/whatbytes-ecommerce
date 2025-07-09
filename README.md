@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛍️ E-Commerce Frontend (Next.js + Tailwind CSS)
 
-## Getting Started
+This is an e-commerce frontend project built with **Next.js (App Router)** and **Tailwind CSS**. It features product listing, filtering, search, cart management, and dynamic routing using [FakeStoreAPI](https://fakestoreapi.com/).
 
-First, run the development server:
+---
+
+## 🚀 Live Demo
+
+🔗 [View Live Project on Vercel](https://your-vercel-deployment-url.vercel.app/)
+
+
+## 🔧 Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **API**: [FakeStore API](https://fakestoreapi.com/)
+
+
+## 📁 Folder Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+whatbytes/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── cart/
+│   │   │   └── page.js
+│   │   ├── product/
+│   │   │   └── [id]/
+│   │   │       └── page.js
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.js
+│   │   └── page.js        ← Home page (product listing)
+│   ├── components/
+│   │   ├── AllProducts.js
+│   │   ├── FeaturedProducts.js
+│   │   ├── Footer.js
+│   │   ├── Navbar.js
+│   │   ├── ProductCard.js
+│   │   ├── ProductDetailClient.js
+│   │   ├── Sidebar.js
+│   │   └── TopCategories.js
+│   └── context/
+│       └── CartContext.js
+├── .gitignore
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package.json
+├── postcss.config.mjs
+├── README.md
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ⚙️ Features
+- ✅ Responsive Product Listing
+- ✅ Dynamic Filtering (Category, Price range)
+- ✅ Search Functionality
+- ✅ Product Detail Page
+- ✅ Cart Page with Quantity & Remove Controls
+- ✅ Persistent Cart (LocalStorage)
+- ✅ Fully Responsive Design
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🧩 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Clone the Repository
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/AjayGodara2417/whatbytes-ecommerce
+cd ecommerce
+```
+2. Install Dependencies
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run the Development Server
+```bash
+npm run dev
+```
+#### Open http://localhost:3000 to view the project.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📩 Contact:
+LinkedIn: https://www.linkedin.com/in/ajay-godara-2b05b4210/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+©️ 2025 Ajay Godara | Web Developer
