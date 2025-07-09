@@ -3,6 +3,7 @@
 import { useCart } from '@/context/CartContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 
 export default function CartPage() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
@@ -25,7 +26,7 @@ export default function CartPage() {
           <div className="space-y-6">
             {cartItems.map(item => (
               <div key={item.id} className="flex gap-6 items-center border-b pb-4">
-                <img src={item.image} alt={item.title} className="w-24 h-24 object-contain" />
+                <Image src={item.image} alt={item.title} className="w-24 h-24 object-contain" />
                 <div className="flex-1">
                   <h2 className="font-semibold">{item.title}</h2>
                   <p className="text-sm text-gray-500">${item.price}</p>
